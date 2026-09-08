@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrictionZero AI — Real-Time AI Fraud Detection & Zero-Friction FinTech Engine</title>
+  <meta name="description" content="Sub-20ms multi-factor fraud detection with dynamic risk-adaptive authentication. Eliminating customer friction for digital payments. IIC 3.0 Problem Statement #16.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Background Ambient Gradients -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <div class="app-container">
+    
+    <!-- Top Navigation / Brand Header -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="brand-badge">
+          <div class="logo-icon">⚡</div>
+          <div class="brand-text">
+            <div class="brand-title-row">
+              <span class="brand-name">FrictionZero</span>
+              <span class="brand-ai">AI</span>
+              <span class="badge-ps">IIC 3.0 • Problem Statement #16</span>
+            </div>
+            <p class="brand-subtitle">Real-Time Risk-Adaptive Payment Authentication & Multi-Factor Fraud Intercept</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="system-status-chip">
+          <span class="pulse-dot"></span>
+          <span class="status-label">ENGINE ONLINE</span>
+          <span class="status-port">:8085</span>
+        </div>
+        <button id="streamToggleBtn" class="btn btn-secondary btn-sm">
+          <span class="icon">⚡</span> <span id="streamToggleText">Auto-Stream: ON</span>
+        </button>
+        <button id="triggerDocsBtn" class="btn btn-outline btn-sm">API Docs</button>
+      </div>
+    </header>
+
+    <!-- Hero / Architecture Banner -->
+    <section class="hero-strip">
+      <div class="hero-content">
+        <div class="hero-tag">PROBLEM STATEMENT #16: FINTECH</div>
+        <h1 class="hero-title">Detect Suspicious Transactions Instantly. <span class="gradient-text">Zero Customer Friction.</span></h1>
+        <p class="hero-desc">
+          Legacy fraud systems penalize honest users with tedious OTPs, false declines, and dropped checkouts. 
+          <strong>FrictionZero AI</strong> scores transactions in <strong>&lt; 15ms</strong> using behavioral biometrics, impossible travel physics, and syndicate graph clustering—delivering silent approvals for legitimate users and surgical step-up challenges only when risk is real.
+        </p>
+      </div>
+      <div class="hero-tiers-summary">
+        <div class="tier-pill tier-safe">
+          <span class="tier-tag">TIER 1 (0–29)</span>
+          <strong>Invisible Zero Friction</strong>
+          <small>Silent instant authorization (&lt;15ms)</small>
+        </div>
+        <div class="tier-pill tier-warn">
+          <span class="tier-tag">TIER 2 (30–74)</span>
+          <strong>Adaptive Step-Up</strong>
+          <small>1-Tap Biometric / Passkey challenge</small>
+        </div>
+        <div class="tier-pill tier-danger">
+          <span class="tier-tag">TIER 3 (75–100)</span>
+          <strong>Surgical Block</strong>
+          <small>Auto-intercept & Syndicate quarantine</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI Metric Cards Grid -->
+    <section class="kpi-grid">
+      <div class="kpi-card" id="kpi-zero-friction">
+        <div class="kpi-header">
+          <span class="kpi-title">Zero-Friction Pass Rate</span>
+          <span class="kpi-icon text-emerald">🛡️</span>
+        </div>
+        <div class="kpi-value" id="valZeroFrictionRate">96.4%</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend positive">↑ High Conversions</span>
+          <span class="kpi-sub">Silent checkout with 0 user prompts</span>
+        </div>
+      </div>
+
+      <div class="kpi-card" id="kpi-prevented">
+        <div class="kpi-header">
+          <span class="kpi-title">Fraud Prevented</span>
+          <span class="kpi-icon text-cyan">💰</span>
+        </div>
+        <div class="kpi-value" id="valPreventedAmount">₹1,85,400</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend neutral" id="valBlockedCount">8 High-Risk Blocks</span>
+          <span class="kpi-sub">Total intercepted volume</span>
+        </div>
+      </div>
+
+      <div class="kpi-card" id="kpi-latency">
+        <div class="kpi-header">
+          <span class="kpi-title">Avg Decision Latency</span>
+          <span class="kpi-icon text-purple">⚡</span>
+        </div>
+        <div class="kpi-value" id="valAvgLatency">12.4 ms</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend positive">16x faster than legacy</span>
+          <span class="kpi-sub">Real-time sub-20ms SLA</span>
+        </div>
+      </div>
+
+      <div class="kpi-card" id="kpi-false-positives">
+        <div class="kpi-header">
+          <span class="kpi-title">False Positive Rate</span>
+          <span class="kpi-icon text-amber">🎯</span>
+        </div>
+        <div class="kpi-value" id="valFalsePositiveRate">&lt; 0.1%</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend positive">Adaptive Step-Up</span>
+          <span class="kpi-sub">Replaced blunt declines with 1-tap</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Operational Workspace: 2-Column Split -->
+    <div class="workspace-grid">
+      
+      <!-- Left Column: Sandbox Simulator & Explainability -->
+      <div class="col-main">
+        
+        <!-- Live Scenario Presets -->
+        <div class="card panel-scenarios">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Interactive Attack & Payment Simulator</h2>
+              <p class="panel-desc">Test how the engine dynamically adapts friction across realistic digital transaction vectors.</p>
+            </div>
+            <span class="badge-accent">Live Scenarios</span>
+          </div>
+
+          <div class="scenario-buttons-grid">
+            <button class="scenario-card" data-scenario="legitimate_coffee">
+              <div class="scenario-icon">☕</div>
+              <div class="scenario-details">
+                <div class="scenario-name">Morning Coffee (UPI)</div>
+                <div class="scenario-sub">Everyday merchant • Trusted phone • ₹240</div>
+              </div>
+              <div class="scenario-badge safe">Tier 1 • Zero Friction</div>
+            </button>
+
+            <button class="scenario-card" data-scenario="high_value_new_device">
+              <div class="scenario-icon">📱</div>
+              <div class="scenario-details">
+                <div class="scenario-name">New Device Electronics</div>
+                <div class="scenario-sub">New tablet • High amount • ₹28,500</div>
+              </div>
+              <div class="scenario-badge warn">Tier 2 • 1-Tap Passkey</div>
+            </button>
+
+            <button class="scenario-card" data-scenario="impossible_travel_takeover">
+              <div class="scenario-icon">✈️</div>
+              <div class="scenario-details">
+                <div class="scenario-name">Impossible Travel ATO</div>
+                <div class="scenario-sub">Frankfurt DC 10m after Mumbai • ₹72,000</div>
+              </div>
+              <div class="scenario-badge danger">Tier 3 • Fraud Block</div>
+            </button>
+
+            <button class="scenario-card" data-scenario="credential_stuffer_bot">
+              <div class="scenario-icon">🤖</div>
+              <div class="scenario-details">
+                <div class="scenario-name">Carding Bot Syndicate</div>
+                <div class="scenario-sub">Headless browser • Sub-second • Tor exit</div>
+              </div>
+              <div class="scenario-badge danger">Tier 3 • Ring Alert</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-Time Evaluation Dossier & Explainable AI (XAI) -->
+        <div class="card panel-dossier" id="evaluationDossier">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Explainable AI (XAI) Risk Breakdown</h2>
+              <p class="panel-desc" id="dossierSubtitle">Detailed attribution factors for the latest evaluated transaction.</p>
+            </div>
+            <div id="dossierDecisionBadge" class="tier-badge-large safe">TIER 1: ZERO FRICTION</div>
+          </div>
+
+          <div class="dossier-body">
+            <!-- Quick Meta Bar -->
+            <div class="dossier-meta-bar">
+              <div class="meta-item">
+                <span class="meta-label">Transaction ID</span>
+                <span class="meta-val" id="dossierTxId">TX-INIT-01</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">User / Channel</span>
+                <span class="meta-val" id="dossierUser">Priya S. (UPI)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Merchant & Amount</span>
+                <span class="meta-val" id="dossierMerchant">Blue Tokai • ₹240</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Risk Score</span>
+                <span class="meta-val score-highlight" id="dossierScore">4 / 100</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Decision Latency</span>
+                <span class="meta-val" id="dossierLatency">0.08 ms</span>
+              </div>
+            </div>
+
+            <!-- Customer Friction Simulation Banner -->
+            <div class="friction-experience-box" id="frictionExperienceBox">
+              <div class="friction-icon" id="frictionExpIcon">⚡</div>
+              <div class="friction-info">
+                <strong id="frictionExpTitle">Customer Experience: Zero Interruption</strong>
+                <p id="frictionExpDesc">The payment completed seamlessly in 12ms. Biometric hardware key verified silently in the background.</p>
+              </div>
+              <button class="btn btn-outline btn-xs" id="previewCustomerScreenBtn">Preview User Screen</button>
+            </div>
+
+            <!-- Factor Attribution Bars (SHAP-Style) -->
+            <div class="factors-section">
+              <h3 class="section-subtitle">Attribution Risk Factor Weights</h3>
+              <div class="factor-bars-list" id="factorBarsList">
+                <!-- Dynamically injected -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Sandbox Transaction Builder -->
+        <div class="card panel-custom-builder">
+          <div class="panel-header" id="customBuilderToggle">
+            <div>
+              <h2 class="panel-title">Custom Sandbox Transaction Inspector</h2>
+              <p class="panel-desc">Inject custom parameters to test corner-cases and custom fraud attacks.</p>
+            </div>
+            <button class="btn btn-outline btn-xs" id="toggleBuilderBtn">Expand Inspector</button>
+          </div>
+
+          <form id="customTxForm" class="custom-form-body hidden">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>User Identifier</label>
+                <input type="text" id="custUserId" value="USR-SANDBOX-7" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Amount (₹ INR)</label>
+                <input type="number" id="custAmount" value="4200" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Merchant Category</label>
+                <select id="custCategory" class="form-input">
+                  <option value="Dining & Cafes">Dining & Cafes</option>
+                  <option value="Consumer Electronics">Consumer Electronics</option>
+                  <option value="Cryptocurrency Exchange">Cryptocurrency Exchange (High Risk)</option>
+                  <option value="Prepaid Gift Cards">Prepaid Gift Cards (High Risk)</option>
+                  <option value="E-Commerce">E-Commerce</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Device Trust Profile</label>
+                <select id="custDeviceTrust" class="form-input">
+                  <option value="TRUSTED">TRUSTED (Known Hardware Fingerprint)</option>
+                  <option value="NEW">NEW (First Seen Device)</option>
+                  <option value="EMULATOR">EMULATOR / HEADLESS (Flagged)</option>
+                  <option value="UNVERIFIED">UNVERIFIED</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>City & Country</label>
+                <input type="text" id="custGeo" value="Jaipur, IN" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Checkout Duration</label>
+                <select id="custDuration" class="form-input">
+                  <option value="15">Normal Human (15 seconds)</option>
+                  <option value="0.8">Sub-second Bot Script (0.8 seconds)</option>
+                  <option value="45">Careful Shopper (45 seconds)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-checkbox-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="custVpn">
+                <span>VPN / Anonymous Proxy Detected</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="custBot">
+                <span>Headless Bot / Automation Detected</span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <span>⚡ Evaluate With FrictionZero AI</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Syndicate Graph & Live Table -->
+      <div class="col-side">
+
+        <!-- Fraud Syndicate & Mule Graph Visualizer -->
+        <div class="card panel-graph">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Syndicate & Mule Graph Explorer</h2>
+              <p class="panel-desc">Interactive cluster topology detecting card-cycling and mule networks.</p>
+            </div>
+            <button id="refreshGraphBtn" class="btn btn-outline btn-xs">Reset View</button>
+          </div>
+
+          <div class="graph-container">
+            <canvas id="fraudGraphCanvas" width="500" height="300"></canvas>
+            <div class="graph-legend">
+              <span class="legend-item"><span class="dot user-dot"></span> User</span>
+              <span class="legend-item"><span class="dot card-dot"></span> Card</span>
+              <span class="legend-item"><span class="dot device-dot"></span> Device</span>
+              <span class="legend-item"><span class="dot mule-dot"></span> Mule Ring</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Ingestion Stream -->
+        <div class="card panel-live-stream">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Live Transaction Ingestion Stream</h2>
+              <p class="panel-desc">Live streaming digital transaction telemetry.</p>
+            </div>
+            <div class="filter-group">
+              <button class="filter-chip active" data-filter="all">All</button>
+              <button class="filter-chip" data-filter="ALLOW_SILENT">Zero Friction</button>
+              <button class="filter-chip" data-filter="CHALLENGE_STEP_UP">Step-Up</button>
+              <button class="filter-chip" data-filter="BLOCK_FRAUD">Blocked</button>
+            </div>
+          </div>
+
+          <div class="transactions-table-wrap">
+            <table class="tx-table">
+              <thead>
+                <tr>
+                  <th>TX / Time</th>
+                  <th>Amount</th>
+                  <th>Score</th>
+                  <th>Decision & Friction</th>
+                </tr>
+              </thead>
+              <tbody id="txTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Interactive Modal: Customer Experience Simulation Screen -->
+  <div class="modal-overlay hidden" id="customerModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn">&times;</button>
+      <div class="modal-header">
+        <h3 id="modalScreenTitle">Customer Mobile Screen Preview</h3>
+        <p class="modal-subtitle">What the end-user sees during checkout under this friction tier.</p>
+      </div>
+      <div class="modal-body" id="modalScreenContent">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

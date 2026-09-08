@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frictionzero-ai:
+    build: .
+    container_name: frictionzero-ai-service
+    ports:
+      - "8085:8085"
+    environment:
+      - PORT=8085
+      - NODE_ENV=production
+    restart: unless-stopped

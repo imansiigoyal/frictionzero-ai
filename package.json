@@ -1,0 +1,29 @@
+{
+  "name": "frictionzero-ai",
+  "version": "1.0.0",
+  "description": "Next-Gen Real-Time AI Fraud Detection & Zero-Friction FinTech Intelligence Engine (IIC 3.0 #16)",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node test/test_engine.js"
+  },
+  "keywords": [
+    "fintech",
+    "fraud-detection",
+    "zero-friction",
+    "artificial-intelligence",
+    "machine-learning",
+    "real-time-payments",
+    "upi",
+    "cybersecurity",
+    "hackathon"
+  ],
+  "author": "FrictionZero Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
