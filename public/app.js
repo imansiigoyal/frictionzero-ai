@@ -93,6 +93,14 @@ function setupEventListeners() {
   // Reset Graph View
   document.getElementById('refreshGraphBtn').addEventListener('click', fetchGraphData);
 
+  // Indian Dataset Viewer Button
+  const viewDatasetBtn = document.getElementById('viewDatasetBtn');
+  if (viewDatasetBtn) {
+    viewDatasetBtn.addEventListener('click', () => {
+      window.open('/api/v1/analytics/dataset', '_blank');
+    });
+  }
+
   // API Docs Button
   document.getElementById('triggerDocsBtn').addEventListener('click', () => {
     window.open('/api/v1/health', '_blank');

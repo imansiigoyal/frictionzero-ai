@@ -28,6 +28,29 @@ router.get('/rules', (req, res) => {
   });
 });
 
+// Indian UPI Fraud Benchmark Dataset Explorer
+router.get('/dataset', (req, res) => {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const datasetPath = path.join(__dirname, '..', '..', 'data', 'indian_upi_fraud_dataset.json');
+    if (fs.existsSync(datasetPath)) {
+      const data = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
+      res.status(200).json({
+        success: true,
+        total: data.length,
+        datasetName: 'Indian Digital Payments & UPI Fraud Benchmark 2026',
+        description: '500 labeled transactions featuring real NPCI UPI schemas, Indian VPAs, Jamtara mule networks, and OLX collect scams.',
+        data: data.slice(0, 100) // Return first 100 for fast browsing
+      });
+    } else {
+      res.status(404).json({ success: false, message: 'Dataset not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 router.put('/rules', (req, res) => {
   try {
     const updated = rules.updateConfig(req.body);

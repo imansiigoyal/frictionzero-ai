@@ -107,40 +107,42 @@ const SCENARIOS = {
   }
 };
 
-// Seed 15 initial transactions to populate historical charts immediately
+// Seed initial transactions from the Indian UPI Fraud Dataset
 function seedInitialTransactions() {
-  const sampleUsers = ['Aarav Patel', 'Neha Gupta', 'Vikram Singh', 'Ananya Iyer', 'Karan Mehta'];
-  const sampleMerchants = [
-    { name: 'Amazon India', cat: 'E-Commerce', amt: 1299 },
-    { name: 'Swiggy', cat: 'Food Delivery', amt: 350 },
-    { name: 'Zomato', cat: 'Food Delivery', amt: 480 },
-    { name: 'Uber Trips', cat: 'Rideshare', amt: 210 },
-    { name: 'BookMyShow', cat: 'Entertainment', amt: 850 },
-    { name: 'Blinkit', cat: 'Quick Commerce', amt: 640 }
-  ];
-
-  sampleMerchants.forEach((m, idx) => {
-    riskEngine.evaluate({
-      userId: `USR-${100 + idx}`,
-      userName: sampleUsers[idx % sampleUsers.length],
-      amount: m.amt,
-      currency: 'INR',
-      merchant: m.name,
-      merchantCategory: m.cat,
-      paymentChannel: 'UPI',
-      deviceId: `DEV-PHONE-${idx}`,
-      deviceTrust: 'TRUSTED',
-      deviceOs: 'Android 14',
-      ipAddress: `103.44.${idx + 10}.12`,
-      geoCity: 'Jaipur',
-      geoCountry: 'IN',
-      latitude: 26.9124,
-      longitude: 75.7873,
-      vpnDetected: false,
-      botDetected: false,
-      checkoutDurationSeconds: 15
-    });
-  });
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const dataPath = path.join(__dirname, '..', '..', 'data', 'indian_upi_fraud_dataset.json');
+    if (fs.existsSync(dataPath)) {
+      const records = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      // Ingest the first 20 records into the live engine
+      records.slice(0, 20).forEach(rec => {
+        riskEngine.evaluate({
+          id: rec.txnId,
+          userId: rec.userVpa.split('@')[0],
+          userName: rec.userName,
+          amount: rec.amount,
+          currency: 'INR',
+          merchant: rec.merchantName,
+          merchantCategory: rec.merchantCategory,
+          paymentChannel: rec.channel,
+          deviceId: rec.deviceId,
+          deviceTrust: rec.deviceTrust,
+          ipAddress: rec.ipAddress,
+          geoCity: rec.city,
+          geoCountry: 'IN',
+          latitude: rec.latitude,
+          longitude: rec.longitude,
+          vpnDetected: rec.vpnDetected,
+          botDetected: rec.botDetected,
+          checkoutDurationSeconds: rec.checkoutDurationSeconds
+        });
+      });
+      return;
+    }
+  } catch (e) {
+    console.error('Fallback seed:', e.message);
+  }
 }
 
 seedInitialTransactions();
